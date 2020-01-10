@@ -37,7 +37,7 @@ namespace Shop3.Data.Mocks
                         img="https://moscowteslaclub.ru/upload/iblock/213/2134afc74cb179108eec91c0174ab591.JPG",
                         price = 55000,
                         isFavourite = true,
-                        available=true,
+                        available=false,
                         Category = _categoryCars.AllCategories.First()
                     },
 

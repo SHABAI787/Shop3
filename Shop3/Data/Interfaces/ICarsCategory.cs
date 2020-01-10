@@ -6,7 +6,7 @@ using Shop3.Data.Models;
 
 namespace Shop3.Data.Interfaces
 {
-    interface ICarsCategory
+    public interface ICarsCategory
     {
         /// <summary>
         /// Возвращает все категории

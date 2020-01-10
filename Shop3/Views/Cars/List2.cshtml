@@ -1,0 +1,28 @@
+﻿@using Shop3.Data.Models
+@model IEnumerable<Car>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+</head>
+<body>
+    <h2>Все автомобили</h2>
+    @{
+        foreach (var car in Model)
+        {
+        <div>
+            <h2>Модель: @car.name</h2>
+            <p>Цена: @car.price.ToString("c")</p>
+            <p>Категория: @car.Category.categoryName</p>
+            <p>Доступна для продажи: @(car.available==true?"В наличии":"Нет в наличии")</p>
+        </div>
+        }
+    }
+</body>
+</html>

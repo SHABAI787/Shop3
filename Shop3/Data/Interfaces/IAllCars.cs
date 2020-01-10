@@ -7,7 +7,7 @@ using Shop3.Data.Models;
 namespace Shop3.Data.Interfaces
 {
     
-    interface IAllCars
+    public interface IAllCars
     {
         /// <summary>
         /// Возвращает или задаёт машины
