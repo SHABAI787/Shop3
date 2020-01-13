@@ -22,7 +22,7 @@ namespace Shop3.Data.Mocks
                         name = "Тесла 1",
                         shortDesc="shortDesc Тесла 1",
                         longDesc = "longDesc Тесла 1",
-                        img="https://moscowteslaclub.ru/upload/iblock/213/2134afc74cb179108eec91c0174ab591.JPG",
+                        img="/img/1.jfif",
                         price = 45000,
                         isFavourite = true,
                         available=true,
@@ -34,7 +34,7 @@ namespace Shop3.Data.Mocks
                         name = "Тесла 2",
                         shortDesc="shortDesc Тесла 2",
                         longDesc = "longDesc Тесла 2",
-                        img="https://moscowteslaclub.ru/upload/iblock/213/2134afc74cb179108eec91c0174ab591.JPG",
+                        img="/img/1.jfif",
                         price = 55000,
                         isFavourite = true,
                         available=false,
@@ -46,12 +46,48 @@ namespace Shop3.Data.Mocks
                         name = "ВАЗ 2107",
                         shortDesc="shortDesc ВАЗ 2107",
                         longDesc = "longDesc ВАЗ 2107",
-                        img="https://i.quto.ru/c533x400/4c6bc6cd43705.jpeg",
+                        img="/img/2.jpeg",
                         price = 15000,
                         isFavourite = true,
                         available=true,
                         Category = _categoryCars.AllCategories.Last()
-                    }
+                    },
+
+                    new Car
+                    {
+                        name = "Тесла 3",
+                        shortDesc="shortDesc Тесла 3",
+                        longDesc = "longDesc Тесла 3",
+                        img="/img/1.jfif",
+                        price = 45000,
+                        isFavourite = true,
+                        available=true,
+                        Category = _categoryCars.AllCategories.First()
+                    },
+
+                    new Car
+                    {
+                        name = "ВАЗ 2107 2",
+                        shortDesc="shortDesc ВАЗ 2107 2",
+                        longDesc = "longDesc ВАЗ 2107 2",
+                        img="/img/2.jpeg",
+                        price = 15000,
+                        isFavourite = true,
+                        available=true,
+                        Category = _categoryCars.AllCategories.Last()
+                    },
+
+                    new Car
+                    {
+                        name = "Тесла 4",
+                        shortDesc="shortDesc Тесла 4",
+                        longDesc = "longDesc Тесла 4",
+                        img="/img/1.jfif",
+                        price = 45000,
+                        isFavourite = true,
+                        available=true,
+                        Category = _categoryCars.AllCategories.First()
+                    },
 
                 };
 
