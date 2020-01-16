@@ -17,7 +17,7 @@ namespace Shop3.Data.Interfaces
         /// <summary>
         /// Возращает только те машины где available==true
         /// </summary>
-        IEnumerable<Car> getFavCars { get; set; }
+        IEnumerable<Car> getFavCars { get;}
 
         /// <summary>
         /// Возвращает машину по ID

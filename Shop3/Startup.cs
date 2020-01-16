@@ -1,22 +1,40 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Shop3.Data;
 using Shop3.Data.Interfaces;
 using Shop3.Data.Mocks;
+using Shop3.Data.Repository;
 
 namespace Shop3
 {
     public class Startup
     {
+        //Данные полученные из dbsettings.json будем помещать в эту переменную
+        private IConfigurationRoot _confString;
+
+        /// <summary>
+        /// Получаем строку из файла dbsettings.json
+        /// </summary>
+        /// <param name="hostEnv"></param>
+        public Startup(IHostingEnvironment hostEnv)
+        {
+            _confString = new ConfigurationBuilder().SetBasePath(hostEnv.ContentRootPath).AddJsonFile("dbsettings.json").Build();
+        }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //Объединение класса и интерфейса
-            services.AddTransient<IAllCars, MockCars>();
+            //Указываем какой SQL сервер мы используем. Данные берём из dbsettings.json
+            services.AddDbContext<AppDBContent>(options => options.UseSqlServer(_confString.GetConnectionString("DefaultConnection")));
 
             //Объединение класса и интерфейса
-            services.AddTransient<ICarsCategory, MockCategory>();
+            services.AddTransient<IAllCars, CarsRepository>();
+
+            //Объединение класса и интерфейса
+            services.AddTransient<ICarsCategory, CategoryRepository>();
 
             //Подключаем поддержку MVC
             services.AddMvc(options => options.EnableEndpointRouting = false);
