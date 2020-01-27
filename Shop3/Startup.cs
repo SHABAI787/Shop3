@@ -56,6 +56,13 @@ namespace Shop3
 
             //Благодаря этой функции мы сможем отслеживать URL адресс
             app.UseMvcWithDefaultRoute();
+
+           
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                AppDBContent content = scope.ServiceProvider.GetRequiredService<AppDBContent>();
+                DbObjects.Initial(content);
+            }
         }
     }
 }
