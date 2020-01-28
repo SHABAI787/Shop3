@@ -20,5 +20,6 @@ namespace Shop3.Data
         //Функция которая устанавливает все данные
         public DbSet<Car> Car { get; set; }
         public DbSet<Category> Category { get; set; }
+        public DbSet<ShopCarItem> ShopCarItem { get; set; }
     }
 }

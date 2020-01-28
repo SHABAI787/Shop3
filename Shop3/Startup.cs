@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Shop3.Data;
 using Shop3.Data.Interfaces;
 using Shop3.Data.Mocks;
+using Shop3.Data.Models;
 using Shop3.Data.Repository;
 
 namespace Shop3
@@ -36,8 +38,14 @@ namespace Shop3
             //Объединение класса и интерфейса
             services.AddTransient<ICarsCategory, CategoryRepository>();
 
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddScoped(sp => ShopCart.GetCart(sp));
+                        
             //Подключаем поддержку MVC
             services.AddMvc(options => options.EnableEndpointRouting = false);
+            services.AddMemoryCache();
+            
         }
 
 
@@ -53,6 +61,7 @@ namespace Shop3
 
             //разрешаем подлючение статических файлов
             app.UseStaticFiles();
+            app.UseSession();
 
             //Благодаря этой функции мы сможем отслеживать URL адресс
             app.UseMvcWithDefaultRoute();
