@@ -49,7 +49,7 @@ namespace Shop3
         }
 
 
-
+     
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -64,8 +64,11 @@ namespace Shop3
             app.UseSession();
 
             //Благодаря этой функции мы сможем отслеживать URL адресс
-            app.UseMvcWithDefaultRoute();
-
+            //app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes => {
+                routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(name: "categoryFilter", template: "{Car}/{action}/{category?}", defaults: new { Controller = "Car", action = "List" });
+            });
            
             using (var scope = app.ApplicationServices.CreateScope())
             {

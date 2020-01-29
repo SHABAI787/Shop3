@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Shop3.Data.Interfaces;
+using Shop3.Data.Models;
+using Shop3.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Shop3.ViewModels;
 
 namespace Shop3.Controllers
 {
@@ -27,15 +27,42 @@ namespace Shop3.Controllers
         /// </summary>
         /// До того как будет выведена страничка мы добавляем все машины на неё
         /// <returns></returns>
-        public ViewResult List()
+        [Route("Cars/List")]
+        [Route("Cars/List/{category}")]
+        public ViewResult List(string category)
         {
-            //ViewBag.Category = "Some New";//автоматически сам по себе передаётся в шаблон
-            //var cars = _allCars.Cars;
+            string _category = category;
+            IEnumerable<Car> cars = null;
+            string carrCategory = "";
+
+            if (string.IsNullOrEmpty(category))
+            {
+                cars = _allCars.Cars.OrderBy(i => i.id);
+            }
+            else
+            {
+                if (string.Equals("electro", category, StringComparison.OrdinalIgnoreCase))
+                {
+                    cars = _allCars.Cars.Where(i => i.Category.categoryName.Equals("Электромобили")).OrderBy(i => i.id);
+                    carrCategory = "Электромобили";
+                }
+                else if (string.Equals("fuel", category, StringComparison.OrdinalIgnoreCase))
+                {
+                    cars = _allCars.Cars.Where(i => i.Category.categoryName.Equals("Классические автомобили")).OrderBy(i => i.id);
+                    carrCategory = "Классические автомобили";
+                }
+
+            }
+
+            var carObj = new CarsListViewModel
+            {
+                allCars = cars,
+                currCategory = carrCategory
+            };
+           
             ViewBag.Title = "Страница с автомобилями";
-            CarsListViewModel obj = new CarsListViewModel();
-            obj.allCars = _allCars.Cars;
-            obj.currCategory = "Авомобили";
-            return View(obj);
+            
+            return View(carObj);
         }
 
 
