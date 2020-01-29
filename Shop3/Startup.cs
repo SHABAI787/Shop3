@@ -21,7 +21,7 @@ namespace Shop3
         /// Получаем строку из файла dbsettings.json
         /// </summary>
         /// <param name="hostEnv"></param>
-        public Startup(IHostingEnvironment hostEnv)
+        public Startup(IHostingEnvironment hostEnv) 
         {
             _confString = new ConfigurationBuilder().SetBasePath(hostEnv.ContentRootPath).AddJsonFile("dbsettings.json").Build();
         }
@@ -45,7 +45,7 @@ namespace Shop3
             //Подключаем поддержку MVC
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddMemoryCache();
-            
+            services.AddSession();
         }
 
 
