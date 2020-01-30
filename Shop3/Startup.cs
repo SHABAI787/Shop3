@@ -37,6 +37,7 @@ namespace Shop3
 
             //Объединение класса и интерфейса
             services.AddTransient<ICarsCategory, CategoryRepository>();
+            services.AddTransient<IAllOrders, OrdersRepository>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 

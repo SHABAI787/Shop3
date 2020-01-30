@@ -22,8 +22,8 @@ namespace Shop3.Data
                     new Car
                     {
                         name = "Тесла 1",
-                        shortDesc = "shortDesc Тесла 1",
-                        longDesc = "longDesc Тесла 1",
+                        shortDesc = "Тесла 1",
+                        longDesc = "Тесла 1",
                         img = "/img/1.jfif",
                         price = 45000,
                         isFavourite = true,
@@ -33,8 +33,8 @@ namespace Shop3.Data
                     new Car
                     {
                         name = "Тесла 2",
-                        shortDesc = "shortDesc Тесла 2",
-                        longDesc = "longDesc Тесла 2",
+                        shortDesc = "Тесла 2",
+                        longDesc = "Тесла 2",
                         img = "/img/1.jfif",
                         price = 55000,
                         isFavourite = true,
@@ -44,8 +44,8 @@ namespace Shop3.Data
                     new Car
                     {
                         name = "ВАЗ 2107",
-                        shortDesc = "shortDesc ВАЗ 2107",
-                        longDesc = "longDesc ВАЗ 2107",
+                        shortDesc = "ВАЗ 2107",
+                        longDesc = "ВАЗ 2107",
                         img = "/img/2.jpeg",
                         price = 15000,
                         isFavourite = true,
@@ -55,8 +55,8 @@ namespace Shop3.Data
                     new Car
                     {
                         name = "Тесла 3",
-                        shortDesc = "shortDesc Тесла 3",
-                        longDesc = "longDesc Тесла 3",
+                        shortDesc = "Тесла 3",
+                        longDesc = "Тесла 3",
                         img = "/img/1.jfif",
                         price = 45000,
                         isFavourite = true,
@@ -66,8 +66,8 @@ namespace Shop3.Data
                     new Car
                     {
                         name = "ВАЗ 2107 2",
-                        shortDesc = "shortDesc ВАЗ 2107 2",
-                        longDesc = "longDesc ВАЗ 2107 2",
+                        shortDesc = "ВАЗ 2107 2",
+                        longDesc = "ВАЗ 2107 2",
                         img = "/img/2.jpeg",
                         price = 15000,
                         isFavourite = true,
@@ -77,8 +77,8 @@ namespace Shop3.Data
                     new Car
                     {
                         name = "Тесла 4",
-                        shortDesc = "shortDesc Тесла 4",
-                        longDesc = "longDesc Тесла 4",
+                        shortDesc = "Тесла 4",
+                        longDesc = "Тесла 4",
                         img = "/img/1.jfif",
                         price = 45000,
                         isFavourite = true,
